@@ -5,7 +5,7 @@ import java.util.List;
 
 public class WordProcessor implements IWordProcessor
 {
-	private char[] delimiters;
+	private List<Character> delimiters;
 
 	private List<String> source;
 
@@ -15,14 +15,14 @@ public class WordProcessor implements IWordProcessor
 
 	public WordProcessor()
 	{
-		this.delimiters = new char[0];
+		this.delimiters = new ArrayList<Character>();
 		this.source = new ArrayList<String>();
 		this.words = new ArrayList<String>();
 		this.wordLength = 1;
 	}
 
 	@Override
-	public char[] getDelimiters()
+	public List<Character> getDelimiters()
 	{
 		return this.delimiters;
 	}
@@ -37,6 +37,12 @@ public class WordProcessor implements IWordProcessor
 	public int getWordLength()
 	{
 		return this.wordLength;
+	}
+
+	@Override
+	public List<String> getWords()
+	{
+		return this.words;
 	}
 
 	@Override
@@ -69,10 +75,44 @@ public class WordProcessor implements IWordProcessor
 	@Override
 	public void processWords()
 	{
+		this.words.clear();
+
+		for (String line : this.source)
+		{
+			String word = "";
+
+			for (int i = 0, length = line.length(); i < length; i++)
+			{
+				char letter = line.charAt(i);
+
+				if (!this.delimiters.contains(letter))
+				{
+					if (word.length() >= this.wordLength)
+					{
+						this.words.add(word);
+
+						word = "";
+					}
+
+					word += letter;
+				}
+				else if (word.length() > 0)
+				{
+					this.words.add(word);
+
+					word = "";
+				}
+			}
+
+			if (word.length() > 0)
+			{
+				this.words.add(word);
+			}
+		}
 	}
 
 	@Override
-	public void setDelimiters(char[] delimiters)
+	public void setDelimiters(List<Character> delimiters)
 	{
 		if (delimiters == null)
 		{

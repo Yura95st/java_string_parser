@@ -9,7 +9,7 @@ public interface IWordProcessor
 	 *
 	 * @return the delimiters
 	 */
-	char[] getDelimiters();
+	List<Character> getDelimiters();
 
 	/**
 	 * Gets the source.
@@ -19,14 +19,28 @@ public interface IWordProcessor
 	List<String> getSource();
 
 	/**
-	 * Gets the words with max length.
+	 * Gets the word length.
 	 *
-	 * @return the words with max length
+	 * @return the word length
+	 */
+	int getWordLength();
+
+	/**
+	 * Gets the words.
+	 *
+	 * @return the list of words
+	 */
+	List<String> getWords();
+
+	/**
+	 * Gets the list of words with max length.
+	 *
+	 * @return the list of words with max length
 	 */
 	List<String> getWordsWithMaxLength();
 
 	/**
-	 * Process words.
+	 * Parses the words from the source.
 	 */
 	void processWords();
 
@@ -36,7 +50,7 @@ public interface IWordProcessor
 	 * @param delimiters
 	 *            the new delimiters
 	 */
-	void setDelimiters(char[] delimiters);
+	void setDelimiters(List<Character> delimiters);
 
 	/**
 	 * Sets the source.
@@ -53,11 +67,4 @@ public interface IWordProcessor
 	 *            word length
 	 */
 	void setWordLength(int length);
-
-	/**
-	 * Gets the word length.
-	 *
-	 * @return the word length
-	 */
-	int getWordLength();
 }
