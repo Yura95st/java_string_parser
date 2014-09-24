@@ -14,7 +14,7 @@ public class Main
 	{
 		IWordProcessor wordProcessor = new WordProcessor();
 
-		wordProcessor.setWordLength(30);
+		wordProcessor.setWordLength(2);
 
 		wordProcessor.setDelimiters(new ArrayList<Character>()
 				{
@@ -41,17 +41,26 @@ public class Main
 
 			List<String> words = wordProcessor.getWordsWithMaxLength();
 
-			System.out
-			.println("Here are the list of the words with max length:");
-
-			for (String word : words)
+			if (words.size() == 0)
 			{
-				System.out.println(word);
+				System.out
+				.println("There are no words in the source.");
+			}
+			else
+			{
+				System.out
+						.println("Here are the list of the words with max length:");
+
+				for (String word : words)
+				{
+					System.out.println(word);
+				}
 			}
 		}
 		catch (Exception e)
 		{
-			System.out.println(e.getMessage());
+			System.out.println("Error occured:");
+			System.out.println(e.toString());
 		}
 	}
 
