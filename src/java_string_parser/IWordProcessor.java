@@ -1,6 +1,7 @@
 package java_string_parser;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IWordProcessor
 {
@@ -10,40 +11,40 @@ public interface IWordProcessor
 	 * @return the delimiters
 	 */
 	List<Character> getDelimiters();
-
+	
 	/**
 	 * Gets the source.
 	 *
 	 * @return the source
 	 */
 	List<String> getSource();
-
+	
 	/**
 	 * Gets the word length.
 	 *
 	 * @return the word length
 	 */
 	int getWordLength();
-
+	
 	/**
 	 * Gets the words.
 	 *
 	 * @return the list of words
 	 */
 	List<String> getWords();
-
+	
 	/**
 	 * Gets the list of words with max length.
 	 *
 	 * @return the list of words with max length
 	 */
-	List<String> getWordsWithMaxLength();
-
+	Set<String> getWordsWithMaxLength();
+	
 	/**
 	 * Parses the words from the source.
 	 */
 	void processWords();
-
+	
 	/**
 	 * Sets the delimiters.
 	 *
@@ -51,7 +52,7 @@ public interface IWordProcessor
 	 *            the new delimiters
 	 */
 	void setDelimiters(List<Character> delimiters);
-
+	
 	/**
 	 * Sets the source.
 	 *
@@ -59,7 +60,7 @@ public interface IWordProcessor
 	 *            the new source
 	 */
 	void setSource(List<String> source);
-
+	
 	/**
 	 * Sets the word length.
 	 *
