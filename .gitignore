@@ -44,7 +44,7 @@ Desktop.ini
 ######################
  
 *.pydevproject
-.project
+#.project
 .metadata
 bin/**
 tmp/**
@@ -54,7 +54,7 @@ tmp/**/*
 *.swp
 *~.nib
 local.properties
-.classpath
+#.classpath
 .settings/
 .loadpath
 /src/main/resources/rebel.xml
@@ -69,6 +69,3 @@ local.properties
  
 # PDT-specific
 .buildpath
-
-# Include jar libraries in lib folder
-!lib/**/*.jar
